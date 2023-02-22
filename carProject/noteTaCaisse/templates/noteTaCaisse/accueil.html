@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Note Ta Caisse{% endblock %}</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        {% block body %}
+        
+            <h1>Bienvenue sur l'application Note Ta Caisse</h1>
+
+            <table>
+                <thead>
+                  <tr>
+                    <th>Marque</th>
+                    <th>Modèle</th>
+                    <th>Année</th>
+                    <th>Puissance (ch)</th>
+                    <th>Finition</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for car in cars %}
+                  <tr>
+                    <td>{{ car.brand }}</td>
+                    <td>{{ car.model }}</td>
+                    <td>{{ car.year }}</td>
+                    <td>{{ car.hp }}</td>
+                    <td>{{ car.version }}</td>
+                    <td><a href="{% url 'car_detail' car.id %}">Details voiture</a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        {% endblock %}
+    
+    
+    </body>
+</html>

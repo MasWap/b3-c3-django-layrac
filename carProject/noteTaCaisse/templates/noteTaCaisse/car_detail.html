@@ -1,0 +1,30 @@
+{% block content %}
+  <h2>{{ car.brand }} {{ car.model }}</h2>
+  <ul>
+    <li>Année : {{ car.year }}</li>
+    <li>Puissance : {{ car.hp }}</li>
+    <li>Version : {{ car.version }}</li>
+    <li>Nombre de votes : {{ car.total_vote }}</li>
+  </ul>
+  <form method="post" action="{% url 'car_detail' car_id=car.id %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="vote">Note:</label>
+      <select name="vote" id="vote" class="form-control">
+        <option value="0" selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Voter</button>
+    </div>
+  </form>
+
+  <a href="{% url 'reset_vote_count' car.id %}">
+    <button>Réinitialiser le nombre de votes</button>
+  </a>
+  
+  <p><a href="{% url 'car_list' %}">&laquo; Retour à la liste des voitures</a></p>
+{% endblock %}
