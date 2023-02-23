@@ -1,10 +1,30 @@
-<footer>
+{% load static %}
 
-
-    Contenue du footer
-
-
-
-</footer>
+<footer class="bg-warning text-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>L'application</h5>
+          <p>
+            Mon app 2 Pilotage est un application permettant une interraction avec notre auto école.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h5>Mentions légales</h5>
+          <p>
+            Retrouvez nos <a href="{% url 'mentions' %}">mentions légales</a>
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h5>Liens utiles</h5>
+          <ul class="list-unstyled">
+            <li><a href="{% url 'index' %}">Accueil</a></li>
+            <li><a href="{% url 'login' %}">Connexion</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
 
 </html>

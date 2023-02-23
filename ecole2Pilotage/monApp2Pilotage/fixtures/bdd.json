@@ -1,0 +1,46 @@
+[
+    {
+        "model": "monApp2Pilotage.ecoles",
+        "pk": 1,
+        "fields": {
+            "name": "Axel'R Auto Ecole",
+            "description": "Description de l'Ecole A",
+            "since": 2000,
+            "students": 1000,
+            "image": "auto-ecole1.png"
+        }
+    },
+    {
+        "model": "monApp2Pilotage.ecoles",
+        "pk": 2,
+        "fields": {
+            "name": "L'Oto & Colle",
+            "description": "Description de l'Ecole B",
+            "since": 1985,
+            "students": 750,
+            "image": "auto-ecole2.png"
+        }
+    },
+    {
+        "model": "monApp2Pilotage.ecoles",
+        "pk": 3,
+        "fields": {
+            "name": "Dumas Auto Ecole",
+            "description": "Description de l'Ecole C",
+            "since": 1999,
+            "students": 500,
+            "image": "auto-ecole3.png"
+        }
+    },
+    {
+        "model": "monApp2Pilotage.ecoles",
+        "pk": 4,
+        "fields": {
+            "name": "La Vitesse Auto Ecole",
+            "description": "Description de l'Ecole D",
+            "since": 2010,
+            "students": 250,
+            "image": "auto-ecole4.png"
+        }
+    }
+]

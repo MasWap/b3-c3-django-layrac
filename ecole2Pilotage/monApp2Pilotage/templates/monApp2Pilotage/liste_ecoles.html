@@ -1,19 +1,40 @@
 {% extends "../base.html" %}
 {% load static %}
 
-
 {% block content %}
 <section id="home-header">
-    <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="container-fluid py-5">
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="{% static 'images/logo.png' %}" class="img-fluid" alt="MonApp2PilotageLogo">
-                </div>
-                <div class="col-md-9">
-                    <h1 class="display-5 fw-bold">Voici la liste des écoles disponibles</h1>
+    <div class="row">
+        {% for ecole in ecoles %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <img src="{{ ecole.image_url }}" class="card-img-top" alt="{{ ecole.name }}">
+                <div class="card-body">
+                    <h3 class="card-title">{{ ecole.name }}</h3>
+                    <p class="card-text">{{ ecole.description }}</p>
+                    <p class="card-text">Il y a {{ ecole.students }} élèves</p>
+                    <a href="#" class="btn btn-primary">Réserver</a>
                 </div>
             </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="schools-list" class="py-5">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for ecole in ecoles %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ ecole.image_url }}" class="card-img-top" alt="{{ ecole.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ ecole.name }}</h5>
+                        <p class="card-text">{{ ecole.description }}</p>
+                        <a href="#" class="btn btn-primary">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

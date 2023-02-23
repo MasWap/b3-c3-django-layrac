@@ -1,9 +1,15 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from .models import Ecoles
 from .forms import LoginForm
 
 # Create your views here.
+
+def view_ecoles(request):
+    ecoles = Ecoles.objects.all()
+    context = {'ecoles': ecoles}
+    return render(request, 'monApp2Pilotage/liste_ecoles.html', context)
 
 def index(request):
     return render(request, 'monApp2Pilotage/accueil.html')
@@ -13,6 +19,15 @@ def ecoles(request):
 
 def eleves(request):
     return render(request, 'monApp2Pilotage/liste_eleves.html')
+
+def reservation(request):
+    return render(request, 'monApp2Pilotage/liste_reservation.html')
+
+def mentions(request):
+    return render(request, 'monApp2Pilotage/mentions_legales.html')
+
+def contenu(request):
+    return render(request, 'monApp2Pilotage/contenu_site.html')
 
 def register(request):
     return render(request, 'registration/register.html')

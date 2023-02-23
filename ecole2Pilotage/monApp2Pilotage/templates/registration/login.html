@@ -2,26 +2,32 @@
 {% load static %}
 
 {% block content %}
+
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">{% block title %}Formulaire de connexion{% endblock %}</div>
                 <div class="card-body">
-                    {% if messages %}
-                        <div class="alert alert-danger">
-                            {% for message in messages %}
-                                {{ message }}
-                            {% endfor %}
-                        </div>
+                    {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
                     {% endif %}
                     <form method="POST" class="text-center">
                         {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="btn btn-primary mx-auto">Connexion</button>
+                        <div class="form-group mx-auto" style="margin-bottom: 20px;">
+                            <label for="username">Nom d'utilisateur :</label>
+                            <input type="text" class="form-control" id="username" name="username">
+                        </div>
+                        <div class="form-group mx-auto" style="margin-bottom: 20px;">
+                            <label for="password">Mot de passe :</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary mx-auto">Se connecter</button>
                         <hr>
                         <div class="text-center">
-                            <p>Je n'ai pas de compte, <a href="{% url 'register' %}">créer un compte</a></p>
+                            <p>Pas encore membre ? <a href="{% url 'register' %}">S'inscrire</a></p>
                         </div>
                     </form>
                 </div>

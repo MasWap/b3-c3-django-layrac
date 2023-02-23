@@ -1,6 +1,6 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
     <div class="container-fluid">
         <img src="{% static 'images/logo.png' %}" alt="" width="250" height="150" class="d-inline-block align-text-top">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -13,21 +13,32 @@
                     <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="{% url 'contenu' %}">Contenu2LApp</a>
                 </li>
                 <li class="nav-item">
+                    {% if user.is_authenticated %}
                     <a class="nav-link" href="{% url 'ecoles' %}">Liste des écoles disponibles</a>
+                    {% else %}
+                    <!-- Champ masqué si l'utilisateur est déconnécté -->
+                    {% endif %}
                 </li>
                 <li class="nav-item">
                     {% if user.is_authenticated %}
                     <a href="{% url 'eleves' %}" class="nav-link">Liste des élèves</a>
                     {% else %}
-                    <a class="nav-link">Liste des élèves</a>
+                    <!-- Champ masqué si l'utilisateur est déconnécté -->
                     {% endif %}
                 </li>
                 <li class="nav-item">
                     {% if user.is_authenticated %}
-                    <a href="{% url 'logout' %}"<button class="btn btn-danger">Deconnexion</button></a>
+                    <a href="{% url 'reservation' %}" class="nav-link">Liste des réservations</a>
+                    {% else %}
+                    <!-- Champ masqué si l'utilisateur est déconnécté -->
+                    {% endif %}
+                </li>
+                <li class="nav-item">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" <button class="btn btn-danger">Deconnexion</button></a>
                     {% else %}
                     <a href="{% url 'login' %}"><button class="btn btn-success">Connexion</button></a>
                     {% endif %}
@@ -36,3 +47,4 @@
         </div>
     </div>
 </nav>
+
