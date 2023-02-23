@@ -1,0 +1,32 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">{% block title %}Formulaire de connexion{% endblock %}</div>
+                <div class="card-body">
+                    {% if messages %}
+                        <div class="alert alert-danger">
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <form method="POST" class="text-center">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary mx-auto">Connexion</button>
+                        <hr>
+                        <div class="text-center">
+                            <p>Je n'ai pas de compte, <a href="{% url 'register' %}">créer un compte</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
