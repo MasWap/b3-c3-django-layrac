@@ -1,0 +1,90 @@
+[
+    {
+        "model": "monApp2Pilotage.eleves",
+        "pk": 1,
+        "fields": {
+            "firstname": "Alice",
+            "name": "Anderson",
+            "dob": "2000-01-01",
+            "gender": "F",
+            "date_register": "2022-02-25"
+        }
+    },
+    {
+        "model": "monApp2Pilotage.eleves",
+        "pk": 2,
+        "fields": {
+            "firstname": "Bob",
+            "name": "Brown",
+            "dob": "2000-01-02",
+            "gender": "H",
+            "date_register": "2022-02-25"
+        }
+    },
+    {
+        "model": "monApp2Pilotage.eleves",
+        "pk": 3,
+        "fields": {
+            "firstname": "Charlie",
+            "name": "Clark",
+            "dob": "2000-01-03",
+            "gender": "H",
+            "date_register": "2022-02-25"
+        }
+    },
+    {
+        "model": "monApp2Pilotage.eleves",
+        "pk": 4,
+        "fields": {
+            "firstname": "Dave",
+            "name": "Davis",
+            "dob": "2000-01-04",
+            "gender": "N/A",
+            "date_register": "2022-02-25"
+        }
+    },
+    {
+        "model": "monApp2Pilotage.eleves",
+        "pk": 5,
+        "fields": {
+            "firstname": "Eve",
+            "name": "Evans",
+            "dob": "2000-01-05",
+            "gender": "F",
+            "date_register": "2022-02-25"
+        }
+    },
+    {
+        "model": "monApp2Pilotage.eleves",
+        "pk": 6,
+        "fields": {
+            "firstname": "Frank",
+            "name": "Foster",
+            "dob": "2000-01-06",
+            "gender": "H",
+            "date_register": "2022-02-25"
+        }
+    },
+    {
+        "model": "monApp2Pilotage.eleves",
+        "pk": 7,
+        "fields": {
+            "firstname": "Grace",
+            "name": "Garcia",
+            "dob": "2000-01-07",
+            "gender": "F",
+            "date_register": "2022-02-25"
+        }
+    },
+    {
+        "model": "monApp2Pilotage.eleves",
+        "pk": 8,
+        "fields": {
+            "firstname": "Heidi",
+            "name": "Hernandez",
+            "dob": "2000-01-08",
+            "gender": "N/A",
+            "date_register": "2022-02-25"
+        }
+    }
+]

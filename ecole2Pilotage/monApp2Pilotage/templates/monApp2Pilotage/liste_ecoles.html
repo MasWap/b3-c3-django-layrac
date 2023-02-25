@@ -7,7 +7,7 @@
         {% for ecole in ecoles %}
         <div class="col-md-4 mb-3">
             <div class="card">
-                <img src="{{ ecole.image_url }}" class="card-img-top" alt="{{ ecole.name }}">
+                <img src="{{ MEDIA_URL }}{{ ecole.image }}" class="card-img-top" alt="{{ ecole.name }}">
                 <div class="card-body">
                     <h3 class="card-title">{{ ecole.name }}</h3>
                     <p class="card-text">{{ ecole.description }}</p>
@@ -17,25 +17,6 @@
             </div>
         </div>
         {% endfor %}
-    </div>
-</section>
-
-<section id="schools-list" class="py-5">
-    <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            {% for ecole in ecoles %}
-            <div class="col">
-                <div class="card h-100">
-                    <img src="{{ ecole.image_url }}" class="card-img-top" alt="{{ ecole.name }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ ecole.name }}</h5>
-                        <p class="card-text">{{ ecole.description }}</p>
-                        <a href="#" class="btn btn-primary">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
     </div>
 </section>
 {% endblock %}

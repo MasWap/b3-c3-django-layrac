@@ -21,7 +21,7 @@ def car_detail(request, car_id):
     try:
         vote = Vote.objects.get(car=car, user=request.user)
     except Vote.DoesNotExist:
-        pass
+        pass    
     if request.method == 'POST':
         # Get the value of the vote from the form submission
         vote_value = request.POST.get('vote')

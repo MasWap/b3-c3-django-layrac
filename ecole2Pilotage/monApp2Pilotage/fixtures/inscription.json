@@ -1,0 +1,29 @@
+[
+    {
+        "model": "monApp2Pilotage.inscription",
+        "pk": 1,
+        "fields": {
+            "eleve_id": "2",
+            "ecole_id": "4",
+            "date_inscription": "2022-02-25"
+        }
+    },
+    {
+        "model": "monApp2Pilotage.inscription",
+        "pk": 2,
+        "fields": {
+            "eleve_id": "1",
+            "ecole_id": "2",
+            "date_inscription": "2022-02-25"
+        }
+    },    
+    {
+        "model": "monApp2Pilotage.inscription",
+        "pk": 3,
+        "fields": {
+            "eleve_id": "7",
+            "ecole_id": "3",
+            "date_inscription": "2022-02-25"
+        }
+    }
+]

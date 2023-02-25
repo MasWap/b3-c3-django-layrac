@@ -1,15 +1,21 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from .models import Ecoles
+from .models import Ecoles, Inscription
 from .forms import LoginForm
 
 # Create your views here.
 
-def view_ecoles(request):
+def ecoles_view(request):
     ecoles = Ecoles.objects.all()
     context = {'ecoles': ecoles}
     return render(request, 'monApp2Pilotage/liste_ecoles.html', context)
+
+
+def eleves_view(request):
+    inscriptions = Inscription.objects.all()
+    context = {'inscriptions': inscriptions}
+    return render(request, 'monApp2Pilotage/liste_eleves.html', context)
 
 def index(request):
     return render(request, 'monApp2Pilotage/accueil.html')
@@ -17,8 +23,6 @@ def index(request):
 def ecoles(request):
     return render(request, 'monApp2Pilotage/liste_ecoles.html')
 
-def eleves(request):
-    return render(request, 'monApp2Pilotage/liste_eleves.html')
 
 def reservation(request):
     return render(request, 'monApp2Pilotage/liste_reservation.html')
