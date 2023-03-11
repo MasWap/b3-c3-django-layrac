@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from .models import Ecoles, Inscription
-from .forms import LoginForm
+from django.contrib.auth.forms import UserCreationForm
+from .models import Ecoles, Inscription, Eleves
+from .forms import LoginForm, UserForm
 
 # Create your views here.
 
@@ -16,6 +17,11 @@ def eleves_view(request):
     inscriptions = Inscription.objects.all()
     context = {'inscriptions': inscriptions}
     return render(request, 'monApp2Pilotage/liste_eleves.html', context)
+
+def eleve_view(request, id):
+    eleve = get_object_or_404(Eleves, id=id)
+    inscriptions = Inscription.objects.filter(eleve=eleve)
+    return render(request, 'monApp2Pilotage/eleve.html', {'eleve': eleve, 'inscriptions': inscriptions})
 
 def index(request):
     return render(request, 'monApp2Pilotage/accueil.html')
@@ -34,7 +40,19 @@ def contenu(request):
     return render(request, 'monApp2Pilotage/contenu_site.html')
 
 def register(request):
-    return render(request, 'registration/register.html')
+    if request.method == 'POST':
+        user_form = UserCreationForm(request.POST)
+        profile_form = UserForm(request.POST, request.FILES)
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
+            profile.save()
+            return redirect('login')
+    else:
+        user_form = UserCreationForm()
+        profile_form = UserForm()
+    return render(request, 'registration/register.html', {'user_form': user_form, 'profile_form': profile_form})
 
 def login_view(request):
     if request.method == 'POST':

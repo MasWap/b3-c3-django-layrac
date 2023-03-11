@@ -2,6 +2,9 @@ from wtforms.validators import DataRequired, Email, Length
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django import forms
+
 
 
 class LoginForm(FlaskForm):
@@ -20,3 +23,16 @@ class LoginForm(FlaskForm):
             return False
 
         return True
+
+class UserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ["username", "email", "password1", "password2"]
+        
+        widgets={
+            'username' : forms.TextInput(),
+            'email' : forms.EmailInput()
+        }
+        
+    password1 = forms.CharField()
+    password2 = forms.CharField()

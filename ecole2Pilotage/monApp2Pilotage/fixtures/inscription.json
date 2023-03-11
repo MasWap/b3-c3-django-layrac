@@ -25,5 +25,23 @@
             "ecole_id": "3",
             "date_inscription": "2022-02-25"
         }
+    },
+    {
+        "model": "monApp2Pilotage.inscription",
+        "pk": 4,
+        "fields": {
+            "eleve_id": "3",
+            "ecole_id": "1",
+            "date_inscription": "2022-02-25"
+        }
+    },
+    {
+        "model": "monApp2Pilotage.inscription",
+        "pk": 5,
+        "fields": {
+            "eleve_id": "6",
+            "ecole_id": "4",
+            "date_inscription": "2022-02-25"
+        }
     }
 ]

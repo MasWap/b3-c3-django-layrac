@@ -4,14 +4,17 @@
 {% block content %}
 <section id="home-header">
     <div class="row">
+        <div class="col-md-9">
+            <h1 class="display-5 fw-bold">Liste des élèves</h1>
+        </div>
         {% for inscription in inscriptions %}
         <div class="col-md-4 mb-3">
-            <div class="card">
+            <div class="card bg-warning-subtle">
                 <div class="card-body">
                     <h3 class="card-title">{{ inscription.eleve.firstname }} {{ inscription.eleve.name }}</h3>
                     <p class="card-text">Auto école : {{ inscription.ecole.name }}</p>
                     <p class="card-text">Inscrit le : {{ inscription.date_inscription }}</p>
-                    <a href="#" class="btn btn-primary">Fiche élève</a>
+                    <a href="{% url 'eleve_view' inscription.eleve.id %}" class="btn btn-primary">Fiche élève</a>
                 </div>
             </div>
         </div>
